@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script>
+	var attempts=3;
+	function ValidateForm(form)
+	{
+		if(form.username.value == "admin" && form.password.value == "admin")
+  		{
+  			alert("Login successful");
+    		window.open('employeeaction.html')/*opens the target page while Id & password matches*/
+  		}
+ 		else
+ 		{
+ 			attempts--;
+
+			alert("You have left "+attempts+" attempts;");
+			// Disabling fields after 3 attempts.
+			if( attempts == 0){
+			document.getElementById("username").disabled = true;
+			document.getElementById("password").disabled = true;
+			document.getElementById("login").disabled = true;
+			return false;
+			}
+   			alert("Error Password or Username")/*displays error message*/
+  		}
+	}
+		
+		
+
+</script>
+
+</head>
+<body>
+	<form id="loginform" name="loginform">
+	<h3 font-family="Algeria">Login Information</h3>
+	<fieldset>
+	<br>
+		Username: <input type="text" id="username" name="username" required>
+		<br><br>
+		Password: <input type="password" id="password" name="password" required>
+		<br><br>
+		<input type="button" name="login" id="login" value="LOGIN" onclick="ValidateForm(this.form)">
+		<br>
+	</fieldset>
+	</form>
+</body>
+</html>
